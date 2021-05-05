@@ -10,8 +10,11 @@ import {Router} from '@angular/router'
 })
 export class DashboardComponent implements OnInit {
 
+
   onboardee:Onboardee[]=[];
   
+  nameSearch:string = '';
+
   constructor(private service:OnboardeeService, private router:Router ) { }
 
   ngOnInit(): void {
@@ -30,8 +33,16 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['update',id]);
   }
 
+  createOnboardee() {
+    this.router.navigate(['create']);
+  }
+
   deleteOnboardee(id:any){
     this.service.deleteOnboardeebyId(id).subscribe(data=>{});
     this.ngOnInit();
+  }
+
+  viewOnboardee(id:any){
+    this.router.navigate(['view',id]);
   }
 }

@@ -24,7 +24,7 @@ export class OnboardeeService {
     return this.http.put(`${this.baseurl}`, value);
   }
 
-  createOnboardee(onboardee: Object): Observable<Object> {
+  createOnboardee(onboardee: any): Observable<any> {
     return this.http.post(`${this.baseurl}`, onboardee);
   }
 

@@ -8,15 +8,12 @@ import { GoogleLoginProvider} from 'angularx-social-login';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UpdateOnboardeeComponent } from './update-onboardee/update-onboardee.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
+import { CreateComponent } from './create/create.component';
+import { ViewOnboardeeComponent } from './view-onboardee/view-onboardee.component';
+import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { FilterbynamePipe } from './filterbyname.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +22,9 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     UpdateOnboardeeComponent,
     NavComponent,
+    CreateComponent,
+    ViewOnboardeeComponent,
+    FilterbynamePipe,
   ],
   imports: [
     BrowserModule,
@@ -32,13 +32,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     SocialLoginModule,
     FormsModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     {
@@ -55,7 +49,8 @@ import { FormsModule } from '@angular/forms';
           }
         ]
       } as SocialAuthServiceConfig,
-    }
+    },
+    BsDatepickerConfig
   ],  
   bootstrap: [AppComponent]
 })

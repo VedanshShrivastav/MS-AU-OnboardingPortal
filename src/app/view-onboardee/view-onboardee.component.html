@@ -1,0 +1,124 @@
+<app-nav></app-nav>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<div class="container">
+    <aside class="profile-card">
+        <header>
+            <h1>{{onboardee.fname}} {{onboardee.lname}}</h1>
+            <p> <a  title="Edit" data-toggle="tooltip" (click)="updateOnboardee(accolitedetail.oid)">
+                    <i class="material-icons col-sm-2" style=" color: #07b9ff;vertical-align:middle; ">&#xe878;</i></a>
+                {{onboardee.dob}}
+            </p>
+
+            <p>    <a class="edit" title="Edit" data-toggle="tooltip" (click)="updateOnboardee(accolitedetail.oid)">
+                    <i class="material-icons col-sm-2" style="size: 5px; color: #07b9ff; vertical-align:middle;">&#xe0cd;</i></a>
+                {{onboardee.contact}}
+            </p>
+            <p>   
+                <a title="Edit" data-toggle="tooltip" (click)="updateOnboardee(accolitedetail.oid)">
+                    <i class="material-icons col-sm-2" style="size: 5px; color: #07b9ff;vertical-align:middle;">&#xe0be;</i></a>
+                {{onboardee.email}}
+            </p>
+        </header>
+        <div class="profile-bio">
+            <h1 style="color: #485e6ed7;">Onboarding Details</h1>
+
+            <div class="container">
+
+                <div class="left">
+                    <p *ngIf="status=='Onboarded'; else notonboarded"> Onboarding Staus : {{status}}
+                        <a class="edit" title="Edit" data-toggle="tooltip"
+                            (click)="updateOnboardee(accolitedetail.oid)">
+                            <i class="material-icons "
+                                style="font-size: 20px; color: #07b9ff; vertical-align:middle;">&#xe174;</i></a>
+                    </p>
+                    <ng-template #notonboarded>
+                        <p> Onboarding Staus : {{status}}
+                            <a class="edit" title="Edit" data-toggle="tooltip"
+                                (click)="updateOnboardee(accolitedetail.oid)">
+                                <i class="material-icons"
+                                    style="font-size: 25px; color: #ffe607; vertical-align: bottom;">&#xea5b;</i></a>
+                        </p>
+                    </ng-template>
+
+                    <p *ngIf="bcg=='Done'; else notdone"> Background Verification : {{bcg}}
+                        <a class="edit" title="Edit" data-toggle="tooltip"
+                            (click)="updateOnboardee(accolitedetail.oid)">
+                            <i class="material-icons "
+                                style="font-size: 20px; color: #07b9ff; vertical-align:middle;">&#xe86c;</i></a>
+                    </p>
+                    <ng-template #notdone>
+                        <p> Background Verification : {{bcg}}
+                            <a class="edit" title="Edit" data-toggle="tooltip"
+                                (click)="updateOnboardee(accolitedetail.oid)">
+                                <i class="material-icons"
+                                    style="font-size: 20px; color: #ffe607; vertical-align: bottom;">&#xf1bb;</i></a>
+                        </p>
+                    </ng-template>
+
+                    <p *ngIf="graduation=='Completed'; else notcompleted"> Gradution of Onboardee : {{graduation}}
+                        <a class="edit" title="Edit" data-toggle="tooltip"
+                            (click)="updateOnboardee(accolitedetail.oid)">
+                            <i class="material-icons "
+                                style="font-size: 20px; color: #07b9ff; vertical-align:middle;">&#xe86c;</i></a>
+                    </p>
+                    <ng-template #notcompleted>
+                        <p> Graduation of Onboardee : {{graduation}}
+                            <a class="edit" title="Edit" data-toggle="tooltip"
+                                (click)="updateOnboardee(accolitedetail.oid)">
+                                <i class="material-icons"
+                                    style="font-size: 25px; color: #ffe607; vertical-align: bottom;">&#xf1bb;</i></a>
+                        </p>
+                    </ng-template>
+
+                </div>
+
+                <div class="right">
+                    <p *ngIf="assignedmanager =='Not assigned'; else assigned">Manager : {{assignedmanager}}
+                        <a class="edit" title="Edit" data-toggle="tooltip"
+                            (click)="updateOnboardee(accolitedetail.oid)">
+                            <i class="material-icons"
+                                style="font-size: 25px; color: #ffe607; vertical-align: bottom;">&#xf1bb;</i></a>
+                    </p>
+                    <ng-template #assigned>
+                        <p>Manager : {{assignedmanager}}
+                            <a class="edit" title="Edit" data-toggle="tooltip"
+                                (click)="updateOnboardee(accolitedetail.oid)">
+                                <i class="material-icons "
+                                    style="font-size: 25px; color: #07b9ff; vertical-align:top;">&#xea67;</i></a>
+                        </p>
+                    </ng-template>
+
+                    <p *ngIf="accolitedetail.startDate == null; else dateassigned">Start Date : Not assigned
+                        <a class="edit" title="Edit" data-toggle="tooltip"
+                            (click)="updateOnboardee(accolitedetail.oid)">
+                            <i class="material-icons"
+                                style="font-size: 25px; color: #ffe607; vertical-align: bottom;">&#xe615;</i></a>
+                    </p>
+                    <ng-template #dateassigned>
+                        <p>StartDate : {{accolitedetail.startDate}}
+                            <a class="edit" title="Edit" data-toggle="tooltip"
+                                (click)="updateOnboardee(accolitedetail.oid)">
+                                <i class="material-icons "
+                                    style="font-size: 25px; color: #07b9ff; vertical-align:top;">&#xe614;</i></a>
+                        </p>
+                    </ng-template>
+
+                    <p *ngIf="accolitedetail.location == null; else locationassigned">Assigned location : Not assigned
+                        <a class="edit" title="Edit" data-toggle="tooltip"
+                            (click)="updateOnboardee(accolitedetail.oid)">
+                            <i class="material-icons"
+                                style="font-size: 25px; color: #ffe607; vertical-align: bottom;">&#xef78;</i></a>
+                    </p>
+                    <ng-template #locationassigned>
+                        <p>Assigned location : {{accolitedetail.location}}
+                            <a class="edit" title="Edit" data-toggle="tooltip"
+                                (click)="updateOnboardee(accolitedetail.oid)">
+                                <i class="material-icons "
+                                    style="font-size: 25px; color: #07b9ff; vertical-align:top;">&#xe55e;</i></a>
+                        </p>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </aside>
+</div>

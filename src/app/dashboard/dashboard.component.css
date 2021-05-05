@@ -1,85 +1,83 @@
 .table-wrapper {
-    width: 1000px;
-    margin: 10px auto;
+    width: 1100px;
+    margin: 50px auto;
     background: #fff;
-    padding: 20px;	
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 45px;
+    padding-bottom: 25px;
+    border: 31px solid rgb(0, 193, 252);
 }
-.table-title {
-    padding-bottom: 10px;
-    margin: 0 0 10px;
+
+.table{
+    border: #a0a5b1;
 }
-.table-title h2 {
-    margin: 6px 0 0;
-    font-size: 22px;
-}
-/*table.table {
-    table-layout: fixed;
-}*/
-table.table tr th, table.table tr td {
-    border-color: #e9e9e9;
-}
-table.table th i {
-    font-size: 13px;
-    margin: 0 5px;
-    cursor: pointer;
-}
-table.table th:last-child {
-    width: 100px;
-}
+
 table.table td a {
     cursor: pointer;
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
 }    
-table.table td a.add {
-    color: #27C46B;
-}
+
 table.table td a.edit {
     color: #FFC107;
 }
 table.table td a.delete {
     color: #E34724;
 }
-table.table td i {
-    font-size: 19px;
+
+table.table td a.view {
+    color: #0755ff;
 }
-table.table td a.add i {
-    font-size: 24px;
-    margin-right: -1px;
-    position: relative;
-    top: 3px;
-}    
-table.table .form-control {
-    height: 32px;
-    line-height: 32px;
-    box-shadow: none;
-    border-radius: 2px;
+.title{
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
-table.table .form-control.error {
-    border-color: #f50000;
+
+.h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20;    
 }
-table.table td .add {
-    display: none;
+
+.thead{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 193, 252);
+    
 }
+
+.table thead th{
+    font-weight: normal;
+    border-bottom: 2px solid  rgb(0, 193, 252);
+    border-left: #fff ;
+    border-right: #fff;
+    border-top:#fff ;
+    font-size: large;
+}
+
+
 .row{
     width: 1000px;
 }
+
 .search-box {
     position: relative;       
     float: left;
-    
     margin-left: 12px;
     margin-bottom: 10px;
+    padding-top: 12px;
     padding-bottom: 10px;
+    float: right;
 }
 .search-box input {
-    height: 39px;
-    border-radius: 20px;
+    height: 41px;
+    width: 150px;
+    border-radius: 10px;
     padding-left: 35px;
-    border-color: #ddd;
     box-shadow: none;
+}
+.search-box :hover{
+    border-color: #379bbd;
 }
 .search-box input:focus {
     border-color: #3FBAE4;
@@ -92,21 +90,12 @@ table.table td .add {
     left: 10px;
 }
 
-.add-new {
-    float: left;
-    height: 34px;
-    font-weight: bold;
-    font-size: 12px;
-    margin-top: 10px;
-    text-shadow: none;
-    min-width: 100px;
-    border-radius: 50px;
-    line-height: 13px;
-}
-.add-new i {
-    margin-right: 4px;
+button{
+    margin-top: 15px;
+    float:left ;
+    margin-left: 10px;
+    border-radius: 10px;   
 }
 
 
-tr:hover {background-color: #f5f5f5;}
 

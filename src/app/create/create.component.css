@@ -1,0 +1,25 @@
+.form{
+    padding-top: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.container{
+    margin-top: 50px;
+    width: 700px;
+    background-color:#a0ccfc;
+    border-radius: 10px;
+}
+
+.btn{
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+.h1{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20;
+    padding-left: 25px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,89 @@
+<app-nav></app-nav>
+<div class="container">
+    <h1 class="font-weight-light h1">New Onboardee Details </h1>
+    <form class="form" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="fname">First Name</label>
+                <input type="text" class="form-control" id="inputfname" placeholder="First Name"
+                    [(ngModel)]="onboardee.fname" name="fname" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="lname">Last Name</label>
+                <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name" required
+                    [(ngModel)]="onboardee.lname" name="lname">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="inputDOB">DOB</label>
+                <input type="date" class="form-control" id="inputDOB" required [(ngModel)]="onboardee.dob" name="dob">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputConatact">Contact</label>
+                <input type="text" class="form-control" id="inputContact" required [(ngModel)]="onboardee.contact"
+                    name="contact" placeholder="Contact">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputEmail">Email</label>
+                <input type="text" class="form-control" id="inputEmail" placeholder="example@gmail.com" required
+                    [(ngModel)]="onboardee.email" name="email">
+            </div>
+
+        </div>
+        <!--<div class="form-row">
+            <div class="form-group col-md-4 mb-3">
+                <select class="custom-select">
+                    <option selected>Skill</option>
+                    <option value="1">Java</option>
+                    <option value="2">Angular</option>
+                    <option value="3">AI</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4 mb-3">
+                <select class="custom-select" [(ngModel)]="onboardee.location" name="location">
+                    <option selected>Location</option>
+                    <option value="1">Mumbai</option>
+                    <option value="2">Banglore</option>
+                    <option value="3">Hyderabad</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4 mb-3">
+                <select class="custom-select" [(ngModel)]="onboardee.manager" name="manager">
+                    <option selected *ngFor="let c of manager">Manager</option>
+                    <option>{{c.name}}</option>
+                    
+                </select>
+            </div>
+        </div>
+        <div class="form-row align-items-center">
+            <div class="col-auto">
+                <div class="form-check ">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">BCG</label>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="form-check ">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">Graduation</label>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="form-check ">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                    <label class="form-check-label" for="inlineCheckbox3">Onboarding</label>
+                </div>
+            </div>
+            <div class="col-auto">
+                <label class="" for="inputDOB">Joining Date</label>
+                <input type="date" class="form-control mb-2" id="JoiningDate">
+            </div>
+        </div>-->
+
+        <div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+
+    </form>
+</div>

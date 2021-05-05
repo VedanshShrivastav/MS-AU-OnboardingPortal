@@ -1,90 +1,95 @@
 <app-nav></app-nav>
+<h1 class="font-weight-light h1 col-auto">Update Details </h1>
 <div class="container">
-    <form class="form" (ngSubmit)="onSubmit()">
-        <h1 class="font-weight-light h1">Onboardee <b>Details</b></h1>
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-row input" style="margin-top: 20px;">
+            <div class="col-sm-3 mb-3">
                 <label for="fname">First Name</label>
                 <input type="text" class="form-control" id="inputfname" placeholder="First Name" required
                     [(ngModel)]="onboardee.fname" name="fname">
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-sm-3 mb-3">
                 <label for="lname">Last Name</label>
                 <input type="text" class="form-control" id="inputPassword4" placeholder="Last Name" required
                     [(ngModel)]="onboardee.lname" name="lname">
             </div>
-            <div class="col-md-4 mb-3">
-                <label for="inputDOB">DOB</label>
-                <input type="text" class="form-control" id="inputDOB" required [(ngModel)]="onboardee.dob" name="dob">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="inputConatact">Contact</label>
-                <input type="text" class="form-control" id="inputContact" required [(ngModel)]="onboardee.contact"
-                    name="contact">
-            </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-5">
                 <label for="inputEmail">Email</label>
                 <input type="text" class="form-control" id="inputEmail" placeholder="example@gmail.com" required
                     [(ngModel)]="onboardee.email" name="email">
             </div>
+        </div>    
+        <div class="form-row input">
+            <div class="form-group col-sm-3">
+                <label for="inputConatact">Contact</label>
+                <input type="text" class="form-control" id="inputContact" required [(ngModel)]="onboardee.contact" name="contact">
+            </div>
+            <div class="col-sm-4 mb-3">
+                <label for="inputDOB">DOB</label>
+                <input type="date" class="form-control" id="inputDOB" required [(ngModel)]="onboardee.dob" name="dob">
+            </div>
+            <div class="col-4">
+                <label for="inputEmail">Joining Date</label>
+                <input type="date" class="form-control" id="JoiningDate" required [(ngModel)]="accolitedetail.startDate"
+                    name="startdate">
+            </div>
+        </div>
 
-        </div>
-        <!--<div class="form-row">
-            <div class="form-group col-md-4 mb-3">
-                <select class="custom-select">
-                    <option selected>Skill</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+        <div class="form-row input">
+            <div class="form-group col-md-3 mb-3">
+                <label>Joining Location</label>
+                <select class="custom-select" [(ngModel)]="accolitedetail.location" name="location">
+                    <option selected >{{accolitedetail.location}}</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Banglore">Banglore</option>
+                    <option value="Hyderabad">Hyderabad</option>
                 </select>
             </div>
             <div class="form-group col-md-4 mb-3">
-                <select class="custom-select">
-                    <option selected>Location</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-            </div>
-            <div class="form-group col-md-4 mb-3">
-                <select class="custom-select">
-                    <option selected>Manager</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                <label>Hiring Manager</label>
+                <select class="custom-select" [(ngModel)]="accolitedetail.manager" name="manager">
+                    <option selected>{{assignedmanager}}</option>
+                    <option *ngFor="let man of manager"value={{man.id}}>{{man.name}}</option>
                 </select>
             </div>
         </div>
-        <div class="form-row align-items-center">
-            <div class="col-auto">
-                <div class="form-check ">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">BCG</label>
-                </div>
-            </div>
-            <div class="col-auto">
-                <div class="form-check ">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                    <label class="form-check-label" for="inlineCheckbox2">Graduation</label>
-                </div>
-            </div>
-            <div class="col-auto">
-                <div class="form-check ">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
-                    <label class="form-check-label" for="inlineCheckbox3">Onboarding</label>
-                </div>
-            </div>
-            <div class="col-auto">
-                <label class="" for="inputDOB">Joining Date</label>
-                <input type="date" class="form-control mb-2" id="JoiningDate">
-            </div>
-        </div>-->
 
-        <div class="col-sm-10">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="form-row align-items-center" style="margin-left: 12px; ">
+            
+            <div style="float:left">
+                <div class="form-check" *ngIf="accolitedetail.bcg == 'true' ; else bcgcheckbox">
+                BCG : <i class="material-icons" style="font-size: 15px; color: #0755ff; ">&#xe86c;</i>
+               </div>
+               
+                <ng-template #bcgcheckbox>
+                    <label for="BCG">BCG</label>
+                    <input type="checkbox" name="bcg" [(ngModel)]="bcg" unchecked>
+                </ng-template>
+            </div>
+
+            <div class="col-auto" style="margin-top: 8px;">
+                <div class="form-check " *ngIf="accolitedetail.graduation == 'true' ; else graduationcheckbox">
+                    Graduation : <i class="material-icons" style="font-size: 15px; color: #0755ff; ">&#xe86c;</i>
+                    </div>
+                <ng-template #graduationcheckbox>
+                    <label for="lname">Graduation</label>
+                    <input type="checkbox" style= "margin-left: 5px;" name="graduation" [(ngModel)]="graduation" unchecked>
+                </ng-template>
+            </div>
+            <div class="col-auto" style="margin-top: 8px;">
+                <div class="form-check " *ngIf="accolitedetail.status == 'true' ; else checkbox">
+                    Onboarding : <i class="material-icons" style="font-size: 15px; color: #0755ff; ">&#xe86c;</i>
+                    </div>
+                <ng-template #checkbox>
+                    <label for="lname">Status</label>
+                    <input type="checkbox" style= "margin-left: 5px;" name="status" [(ngModel)]="status" unchecked>
+                </ng-template>
+            </div>
         </div>
+
+            <div class="col-auto" style="margin-left: 15px;">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
 
     </form>
 </div>

@@ -6,7 +6,7 @@ export class Onboardee {
     dob?: string;
     contact? : string;
     email? :string;
-    
+    test?: string;
     constructor() {
         
     }
