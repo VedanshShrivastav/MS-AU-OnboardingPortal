@@ -8,6 +8,15 @@ public class Onboarding {
     private String Location;
     private String StartDate;
     private int Manager;
+    private String Position;
+
+    public String getPosition() {
+        return Position;
+    }
+
+    public void setPosition(String position) {
+        Position = position;
+    }
 
     public String getGraduation() {
         return Graduation;

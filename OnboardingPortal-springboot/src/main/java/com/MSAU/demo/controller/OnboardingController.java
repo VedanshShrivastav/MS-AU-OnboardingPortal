@@ -2,6 +2,7 @@ package com.MSAU.demo.controller;
 
 
 import com.MSAU.demo.bean.Onboarding;
+import com.MSAU.demo.bean.Trends1;
 import com.MSAU.demo.repository.OnboardingRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -63,5 +64,9 @@ public class OnboardingController {
         return new ResponseEntity<Onboarding>(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping("/trends1")
+    public List<Trends1>getcountPerLocation(){
+        return OnboardingRepo.getcountPerLocation();
+    }
 
 }

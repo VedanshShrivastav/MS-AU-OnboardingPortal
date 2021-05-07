@@ -63,7 +63,7 @@ public class PersonalInfoRepo {
 
         String query="update PersonalInfo set fname = ? , lname = ? , DOB = ? , Contact = ? , Email = ? where OID = ?";
         Object[] params = {PersonalInfo.getFname(), PersonalInfo.getLname(),PersonalInfo.getDob(),PersonalInfo.getContact(),PersonalInfo.getEmail(),PersonalInfo.getoid()};
-        int[] types = {Types.VARCHAR, Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.INTEGER};
+        int[] types = {Types.VARCHAR, Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.INTEGER};
 
         return jdbcTemplate.update(query, params, types);
     }
