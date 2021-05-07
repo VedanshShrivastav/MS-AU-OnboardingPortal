@@ -22,7 +22,7 @@ public class OnboardingRowMapper implements RowMapper {
         user.setLocation(resultSet.getString("Location"));
         user.setStartDate(resultSet.getString("StartDate"));
         user.setManager(resultSet.getInt("Manager"));
-
+        user.setPosition(resultSet.getString("Position"));
         return user;
     }
 }

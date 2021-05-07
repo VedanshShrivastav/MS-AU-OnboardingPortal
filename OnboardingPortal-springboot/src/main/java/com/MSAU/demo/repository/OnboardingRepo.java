@@ -2,6 +2,8 @@ package com.MSAU.demo.repository;
 
 import com.MSAU.demo.bean.Onboarding;
 import com.MSAU.demo.bean.OnboardingRowMapper;
+import com.MSAU.demo.bean.Trends1;
+import com.MSAU.demo.bean.Trends1RowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -23,7 +25,10 @@ public class OnboardingRepo {
     public List<Onboarding> getOnboarding(){
         return  jdbcTemplate.query("select * from Onboarding",new OnboardingRowMapper());
     }
+    public List<Trends1> getcountPerLocation(){
+        return jdbcTemplate.query("select Location,Count(OID) as OID from Onboarding group by Location",new Trends1RowMapper());
 
+    }
     public Onboarding findByoid(Integer oid){
 
         String sql = "SELECT * FROM Onboarding WHERE oid = ?";
@@ -39,7 +44,7 @@ public class OnboardingRepo {
 
 
     public Boolean saveOnboarding(Onboarding Onboarding){
-        String query="insert into Onboarding values(?,?,?,?,?,?,?)";
+        String query="insert into Onboarding values(?,?,?,?,?,?,?,?)";
         return jdbcTemplate.execute(query,new PreparedStatementCallback<Boolean>(){
             @Override
             public Boolean doInPreparedStatement(PreparedStatement ps)
@@ -52,6 +57,7 @@ public class OnboardingRepo {
                 ps.setString(5,Onboarding.getLocation());
                 ps.setString(6,Onboarding.getStartDate());
                 ps.setInt(7,Onboarding.getManager());
+                ps.setString(8,Onboarding.getPosition());
                 return ps.execute();
 
             }
@@ -60,9 +66,9 @@ public class OnboardingRepo {
 
     public Integer updateOnboarding(Onboarding Onboarding){
 
-        String query="update Onboarding set BCG = ? , Graduation = ? , Status = ? , Location = ? , StartDate = ?, Manager = ? where oid = ?";
-        Object[] params = {Onboarding.getBCG(), Onboarding.getGraduation(),Onboarding.getStatus(),Onboarding.getLocation(),Onboarding.getStartDate(), Onboarding.getManager(),Onboarding.getoid()};
-        int[] types = {Types.VARCHAR, Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.INTEGER,Types.INTEGER};
+        String query="update Onboarding set BCG = ? , Graduation = ? , Status = ? , Location = ? , StartDate = ?, Manager = ?, Position=? where oid = ?";
+        Object[] params = {Onboarding.getBCG(), Onboarding.getGraduation(),Onboarding.getStatus(),Onboarding.getLocation(),Onboarding.getStartDate(), Onboarding.getManager(),Onboarding.getPosition(),Onboarding.getoid()};
+        int[] types = {Types.VARCHAR, Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.VARCHAR,Types.INTEGER,Types.VARCHAR,Types.INTEGER};
 
         return jdbcTemplate.update(query, params, types);
     }
@@ -70,4 +76,6 @@ public class OnboardingRepo {
     public Integer deleteOnboardingByoid(Integer oid){
         return jdbcTemplate.update("delete from Onboarding where oid = ?",oid);
     }
+
+
 }
