@@ -20,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { config } from 'rxjs';
 
-//export function provideConfig(return config;) {}
+export function provideConfig() { return config;}
 
 @NgModule({
   declarations: [

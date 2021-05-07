@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './Authorization/auth.guard';
 import { CreateComponent } from './create/create.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
@@ -17,28 +18,28 @@ const routes: Routes = [
     path: '', redirectTo: '/login', pathMatch: 'full'
 },
 {
-    path: 'Dashboard',  component: DashboardComponent
+    path: 'Dashboard',canActivate:[AuthGuard] , component: DashboardComponent
 },
 {
-    path:'home', component:NavComponent
+    path: 'home', canActivate: [AuthGuard], component:NavComponent
 },
 {
-    path: 'update/:id', component: UpdateOnboardeeComponent
+    path: 'update/:id', canActivate: [AuthGuard], component: UpdateOnboardeeComponent
 },
 {
-    path: 'create', component: CreateComponent
+    path: 'create', canActivate: [AuthGuard], component: CreateComponent
 
 },
 {
-    path: 'view/:id', component: ViewOnboardeeComponent
+    path: 'view/:id', canActivate: [AuthGuard], component: ViewOnboardeeComponent
         
 },
 {  
-    path: 'Trends', component: TrendsComponent
+    path: 'Trends', canActivate: [AuthGuard], component: TrendsComponent
 
 },
 {
-    path: 'vacancy', component: VacancyComponent
+    path: 'vacancy', canActivate: [AuthGuard], component: VacancyComponent
 },
 ];
 
