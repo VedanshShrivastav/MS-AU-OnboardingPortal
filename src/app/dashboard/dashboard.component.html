@@ -1,54 +1,97 @@
 <app-nav></app-nav>
-<div class="container-lg">
+<div class="">
   <div class="table-responsive">
     <div class="table-wrapper">
-      <div class="row title">
-        <div class="col-sm-6">
-          <h2 class="font-weight-light h1">Onboardee <b>Details</b></h2>
-        </div>
-        <div class="col-sm-4">
-          <div class="search-box">
-            <i class="material-icons" style="padding-top: 14px;">&#xE8B6;</i>
-            <input type="text" class="form-control" id="serchbyname"
-             [(ngModel)]="nameSearch" placeholder="Search..">
+      <div class="">
+        <div class="row title">
+          <div class="col-sm-6">
+            <p class="display-4">Onboardee <b>Details</b></p>
+          </div>
+          <div class="col-sm-4">
+            <div class="search-box">
+              <i class="material-icons" style="padding-top: 14px;">&#xE8B6;</i>
+              <input type="text" class="form-control" id="serchbyname" [(ngModel)]="nameSearch" placeholder="Search..">
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <button type="button" class="btn btn-outline-primary" (click)="createOnboardee()">
+              <!-- add a candidate-->
+              <i class="fa fa-plus"></i> Add New
+            </button>
           </div>
         </div>
-        <div class="col-sm-2">
-          <button type="button" class="btn btn-outline-primary" (click)="createOnboardee()">
-            <!-- add a candidate-->
-            <i class="fa fa-plus"></i> Add New
-          </button>
-        </div>
-      </div>
 
-      <table class="table table-hover table-bordered ">
-        <thead class="thead">
-          <tr class="tr">
-            <th style="width: 60px;">OID</th>
-            <th style="width: 150px;">First name</th>
-            <th style="width: 140px;">Last name</th>
-            <th style="width: 40px;">Contact</th>
-            <th style="width: 40px;">Email</th>
-            <th style="width: 120px;">Actions</th>
-          </tr>
-        </thead>
-        <tbody id="myTable">
-          <tr *ngFor="let c of onboardee | filterbyname : nameSearch">
-            <td>{{ c.oid }}</td>
-            <td>{{ c.fname }}</td>
-            <td>{{ c.lname }}</td>
-            <td>{{ c.contact}}</td>
-            <td>{{ c.email}}</td>
-            <td>
-              <a class="view" title="View" data-toggle="tooltip"(click)="viewOnboardee(c.oid)"><i class="material-icons">&#xE417;</i></a>
-              <a class="edit" title="Edit" data-toggle="tooltip" (click)="updateOnboardee(c.oid)"><i
-                  class="material-icons">&#xE254;</i></a>
-              <a class="delete" title="Delete" data-toggle="tooltip" (click)="deleteOnboardee(c.oid)"><i
-                  class="material-icons">&#xE872;</i></a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <table class="table table-hover table-bordered ">
+          <thead class="thead">
+            <tr class="tr">
+              <th>OID</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Contact</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="myTable">
+            <tr *ngFor="let c of onboardee | filterbyname : nameSearch;let i=index">
+              <td>{{ c.oid }}</td>
+              <td>{{ c.fname }}</td>
+              <td>{{ c.lname }}</td>
+              <td>{{ c.contact}}</td>
+              <td>{{ c.email}}</td>
+
+              <td>
+                <a class="view" title="View" data-toggle="tooltip" (click)="viewOnboardee(c.oid)"><i
+                    class="material-icons">&#xE417;</i></a>
+                <a class="edit" title="Edit" data-toggle="tooltip" (click)="updateOnboardee(c.oid)"><i
+                    class="material-icons">&#xE254;</i></a>
+                <a class="delete" title="Delete" data-toggle="tooltip" (click)="deleteOnboardee(c.oid)"><i
+                    class="material-icons">&#xE872;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="table-wrapper">  
+      <div class="">
+        <div class="row title" style="margin-right: 0px;">
+          <div class="col-sm-8">
+            <p class="display-4">Onboarded<b>Candidates</b></p>
+          </div>
+          <div class="col-sm-4">
+            <div class="search-box" style="float: right;">
+              <i class="material-icons" style="padding-top: 14px;">&#xE8B6;</i>
+              <input type="text" class="form-control" id="serchbyname" [(ngModel)]="nameSearch" placeholder="Search..">
+            </div>
+          </div>
+        </div>
+        
+        <table class="table table-hover table-bordered ">
+          <thead class="thead">
+            <tr class="tr">
+              <th>OID</th>
+              <th>Location</th>
+              <th>Joining Date</th>
+              <th>Manager</th>
+              <th style="width: 50px;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="myTable" *ngFor="let a of accolitedetails;let i=index">
+            <tr  *ngIf="accolitedetails[i].status == 'true'; ">
+              <td>{{ a.oid }}</td>
+              <td>{{ a.location }}</td>
+              <td>{{ a.startDate }}</td>
+              <td>{{ mname[i]}}</td>
+        
+              <td>
+                <a class="view" title="View" data-toggle="tooltip" (click)="viewOnboardee(a.oid)"><i
+                    class="material-icons">&#xE417;</i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

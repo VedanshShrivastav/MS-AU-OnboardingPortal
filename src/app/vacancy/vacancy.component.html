@@ -1,0 +1,21 @@
+<app-nav></app-nav>
+<div class="table-wrapper">
+     
+            <p class="text-center display-4"> <b>Vacancies</b> Board</p>
+        
+    <br><br>
+
+    <div class="row">
+        <div class="col-sm-6" *ngFor="let v of vacancy">
+            <!-- <div class="card" *ngFor="let demand of demands" fxFlex="30"> -->
+            <div class="shadow shadow-intensity-xl p-4 mb-5 bg-primary text-white rounded" fxFlex="30">
+                <div class="card-body">
+                    <mat-card-title class="no-margin">{{v.id}} | {{v.position}}</mat-card-title><br>
+                    <div fxLayout="row"style="font-weight: light; padding-top: 15px;">
+                        <div>{{v.location}}&nbsp;&nbsp;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,11 +9,18 @@ import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UpdateOnboardeeComponent } from './update-onboardee/update-onboardee.component';
 import { NavComponent } from './nav/nav.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { ViewOnboardeeComponent } from './view-onboardee/view-onboardee.component';
-import { BsDatepickerModule, BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { FilterbynamePipe } from './filterbyname.pipe';
+import { TrendsComponent } from './trends/trends.component';
+import { ChartsModule } from 'ng2-charts';
+import { VacancyComponent } from './vacancy/vacancy.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { config } from 'rxjs';
+
+//export function provideConfig(return config;) {}
 
 @NgModule({
   declarations: [
@@ -25,6 +32,8 @@ import { FilterbynamePipe } from './filterbyname.pipe';
     CreateComponent,
     ViewOnboardeeComponent,
     FilterbynamePipe,
+    TrendsComponent,
+    VacancyComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +41,10 @@ import { FilterbynamePipe } from './filterbyname.pipe';
     HttpClientModule,
     SocialLoginModule,
     FormsModule,
-    BsDatepickerModule.forRoot()
+    ReactiveFormsModule,
+    ChartsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
   ],
   providers: [
     {
@@ -50,7 +62,6 @@ import { FilterbynamePipe } from './filterbyname.pipe';
         ]
       } as SocialAuthServiceConfig,
     },
-    BsDatepickerConfig
   ],  
   bootstrap: [AppComponent]
 })

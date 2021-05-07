@@ -6,7 +6,8 @@
     padding-right: 45px;
     padding-top: 45px;
     padding-bottom: 25px;
-    border: 31px solid rgb(0, 193, 252);
+    border-radius: 10px;
+    border: 3px solid rgb(0, 193, 252);
 }
 
 .table{
@@ -35,9 +36,10 @@ table.table td a.view {
     padding-bottom: 20px;
 }
 
-.h1{
+
+h1{
+    font-weight: 9000px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20;    
 }
 
 .thead{
@@ -73,6 +75,7 @@ table.table td a.view {
     height: 41px;
     width: 150px;
     border-radius: 10px;
+    border:1px solid #6e6e6e;
     padding-left: 35px;
     box-shadow: none;
 }

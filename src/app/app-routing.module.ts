@@ -4,7 +4,9 @@ import { CreateComponent } from './create/create.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { NavComponent } from './nav/nav.component';
+import { TrendsComponent } from './trends/trends.component';
 import { UpdateOnboardeeComponent } from './update-onboardee/update-onboardee.component';
+import { VacancyComponent } from './vacancy/vacancy.component';
 import { ViewOnboardeeComponent } from './view-onboardee/view-onboardee.component';
 
 const routes: Routes = [
@@ -15,7 +17,7 @@ const routes: Routes = [
     path: '', redirectTo: '/login', pathMatch: 'full'
 },
 {
-    path: 'Dashboard', component: DashboardComponent
+    path: 'Dashboard',  component: DashboardComponent
 },
 {
     path:'home', component:NavComponent
@@ -31,7 +33,13 @@ const routes: Routes = [
     path: 'view/:id', component: ViewOnboardeeComponent
         
 },
+{  
+    path: 'Trends', component: TrendsComponent
 
+},
+{
+    path: 'vacancy', component: VacancyComponent
+},
 ];
 
 @NgModule({

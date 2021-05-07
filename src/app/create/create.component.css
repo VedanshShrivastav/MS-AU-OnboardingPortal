@@ -1,25 +1,39 @@
+
 .form{
     padding-top: 0px;
-    padding-left: 25px;
+    padding-left: 30px;
     padding-right: 25px;
 }
 
 .container{
+    background: linear-gradient(45deg,  rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 189,0.4) 100%);
     margin-top: 50px;
     width: 700px;
-    background-color:#a0ccfc;
     border-radius: 10px;
 }
 
 .btn{
     margin-top: 10px;
+    color: linear-gradient(45deg,  rgba(66, 183, 245,0.8) 0%,rgba(66, 245, 189,0.4) 100%);
+
     margin-bottom: 40px;
 }
-
+.btn:disabled{
+    background-color:  gray;
+    border:solid gray;
+}
 .h1{
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20;
-    padding-left: 25px;
+    padding-left: 0px;
     padding-top: 50px;
     padding-bottom: 10px;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border-left: 4px solid red;
+}
+
+
+.form-control.ng-touched.ng-valid{
+    border-left: 4px solid green;   
 }

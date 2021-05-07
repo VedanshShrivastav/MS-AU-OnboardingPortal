@@ -8,6 +8,9 @@ import { AccoliteDetails } from './AccoliteDetails';
 })
 export class AccoliteDetailsService {
 
+
+  str1:string='trends1';
+  
   private baseurl = "http://localhost:8080/Onboarding"
   constructor(private http: HttpClient) { }
 
@@ -18,6 +21,10 @@ export class AccoliteDetailsService {
 
   getAccoliteDetails(id: any): Observable<any> {
     return this.http.get(`${this.baseurl}/${id}`);
+  }
+
+  getcountPerLocation():Observable<any>{
+    return this.http.get(`${this.baseurl}/${this.str1}`);
   }
 
   updateAccoliteDetails(value: AccoliteDetails): Observable<any> {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Manager } from '../Manager';
 import { ManagerService } from '../manager.service';
@@ -16,9 +17,20 @@ export class CreateComponent implements OnInit {
   submitted = false;
   manager: Manager[]=[];
 
+  createform!: FormGroup;
+
   constructor(private router: Router, private service: OnboardeeService, private mservice :ManagerService) {}
 
   ngOnInit(): void {
+    this.createform=new FormGroup({
+      'inputfname' : new FormControl('',Validators.required),
+      'inputlname': new FormControl(null, Validators.required),
+      'inputDOB': new FormControl(null, Validators.required),
+      'inputContact': new FormControl(null, [Validators.required, Validators.pattern(/(7|8|9)\d{9}$/)]),
+      'inputEmail': new FormControl(null, [Validators.required, Validators.email])
+
+    })
+
     this.getManager();
   }
 

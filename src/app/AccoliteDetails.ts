@@ -6,8 +6,9 @@ export class AccoliteDetails {
     graduation?:string;
     location?:string;
     startDate?:string;
-    manager?:number;
-
+    manager!:number;
+    position:string;
+    
     constructor() {
         
     }

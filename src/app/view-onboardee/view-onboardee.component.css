@@ -66,7 +66,6 @@ h2 {
   height: 400px;
   margin-right: 0px;
   padding: 50px 0px 00px 0px;
-  display: inline-block;
   float: left;
   border-right: 2px dashed #cac6c6;
   background: #FFFFFF;
@@ -109,6 +108,10 @@ h2 {
   margin-left: 40px;
 }
 
+i{
+  cursor:pointer;
+}
+
 .profile-card .profile-bio {
   width: 500px;
   height: 50%;
@@ -121,16 +124,8 @@ h2 {
   animation: moveIn 1s 1s ease forwards;
 }
 
-.list-unstyled {
-  margin-top: 20px;
-  padding-left: 0;
-  list-style: none;
-}
-.list-inline li {
-  display: inline-block;
-  padding-right: 10px;
-  padding-left: 10px;
-}
+
+
 
 .profile-bio .container{
   margin-top: 25px;
